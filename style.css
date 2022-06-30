@@ -1,0 +1,124 @@
+img {
+    height: 60vh;
+}
+
+.cardComponent {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.card {
+    height: 20rem;
+    width: 20rem;
+    margin: 5vw 6vw;
+    box-sizing: border-box;
+    min-height: 20rem;
+}
+
+.card-header {
+    font-weight: 800px;
+    font-size: 37px;
+    text-align: center;
+}
+
+.card-Thread {
+    width: 100vw;
+}
+
+.display-2{
+    top: 5px;
+    font-style: italic;
+    left: 20vw;
+    font-weight: 980;
+    position: absolute;
+    font-size: 27px;
+}
+.button{
+    margin: auto;
+    margin-left:55vw;
+}
+
+.form-group{
+    margin:auto;
+    width:80vw;
+    margin-top:5rem;
+}
+h3{
+    text-align:center;
+    font-size:27px;
+    margin-top:5vw;
+}
+.loginpage,.signuppaige{
+background-image: linear-gradient(cyan,blue,yellow,orange);
+height:100%;
+}
+.form-check{
+ margin-top: 10vw;
+ display: flex;
+ justify-content: center;
+}
+.loginBlue{
+    margin-left: 10vw;
+margin-bottom: 5vw;
+margin-top:5vw;
+
+} 
+.blue{
+    display:flex;
+    position:absolute;
+    top:-25vw;
+
+}
+
+
+
+
+
+
+
+label{
+    color:black;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
