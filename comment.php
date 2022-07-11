@@ -31,7 +31,7 @@ echo'<div class="jumbotron">
     <label for="exampleFormControlTextarea1"> Post your solution to help the developers community</label>
     <textarea class="form-control"  name="comment_desc" id="exampleFormControlTextarea1" rows="6"></textarea>
   </div>
-  <button name="submit"  class="btn btn-primary ">Submit</button>
+  <button style="position:relative; left:5vw;" name="submit"  class="btn btn-primary ">Submit</button>
 </form>
 <?php 
 if(isset($_POST["submit"])){
