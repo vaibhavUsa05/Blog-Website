@@ -36,7 +36,9 @@ session_start();
  
 
   <button type="submit" name="submit" class="loginBlue btn btn-primary ">login</button>
+  <a href="./signup.php">Create Account</a>
   </div>
+ 
 </form>
 <?php
 
@@ -49,55 +51,38 @@ $res=mysqli_query($conn,$sql);
 $num=mysqli_num_rows($res);
 if($num>0){
 while($row=mysqli_fetch_assoc($res)){
-  $passwordHASH=password_verify($row["PASSWORD"],$password);
-  echo $row["PASSWORD"]==$password;
- // echo $row["PASSWORD"];
-  $passVER=($passwordHASH);
-if($passVER){
-  echo'<script>alert("this is certain that is i am gonna be going to the usa")</script>';
-}
-else{
-  echo'<script>alert("or if some uncertainity goes on then europe , here i come")</script>';
-}
- $_SESSION["username"]=$row["USERNAME"];
- 
-   echo' <div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Welcome '.$_SESSION["username"].'</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Please click on the button below to login .</p>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./home.php?username='.$username.'"> click here to login</a></button> 
-        </div>
-      </div>
-    </div> 
-  </div>';
+//    $passwordHASH=password_verify($row["PASSWORD"],$password);
+//   // echo $row["PASSWORD"]==$password;
+//  if($passwordHASH){
+  echo '<script>alert("account exist")</script>';
+  $_SESSION["username"]=$row["USERNAME"];
+ header('location:./home.php?username='.$_SESSION["username"].'');
 }}
+ 
+ 
+  //  echo' <div class="modal" tabindex="-1" role="dialog">
+  //   <div class="modal-dialog" role="document">
+  //     <div class="modal-content">
+  //       <div class="modal-header">
+  //         <h5 class="modal-title">Welcome '.$_SESSION["username"].'</h5>
+  //         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  //           <span aria-hidden="true"></span>
+  //         </button>
+  //       </div>
+  //       <div class="modal-body">
+  //         <p>Please click on the button below to login .</p>
+  //       </div>
+  //       <div class="modal-footer">
+  //       <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./home.php?username='.$username.'"> click here to login</a>click here to login</button> 
+  //       </div>
+  //     </div>
+  //   </div> 
+  // </div>';
 else{
 echo'<script>alert("Oops no such account")</script>
-
-<button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="./signup.php"> create account</a></button>
-</button>
-';
-}
-
-
-
-
-}
-
-
-
-
-
+';}}
 ?>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
