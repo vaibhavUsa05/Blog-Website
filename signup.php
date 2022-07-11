@@ -31,12 +31,8 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
   </div>
- 
-
-  </div>
-
-
   <button type="submit" name="submit" class="loginBlue btn btn-primary ">submit</button>
+  <a href="./login.php">Already have an account?</a>
   </div>
 </form>
 <?php
@@ -48,18 +44,17 @@ $password=$_POST["password"];
 $securedpassword=password_hash($password,PASSWORD_BCRYPT);
 $sql="INSERT INTO `loginuser`(`USERNAME`,`EMAIL`,`PASSWORD`) VALUES ('$username','$email','$securedpassword')";
 $res=mysqli_query($conn,$sql);
-
-echo $securedpassword;
 $num=mysqli_num_rows($res);
-if($num){
-
+if($num>0){
   echo'<script>alert("account already exist")</script>';
    }
 else{
     echo'<script>alert("account created successfully")</script>';
+    header("location:./login.php");
 }
 }
 ?>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
