@@ -48,7 +48,7 @@ echo'<div class="card-Thread">
     <label for="exampleFormControlTextarea1" style="padding-left :10rem;  margin-top:5vw;  font-size:37px;">query description</label>
     <textarea class="form-control w-90 p-3"  style="width:80vw;  margin: auto;" name ="querydesc" id="exampleFormControlTextarea1" rows="6" ></textarea>
   </div>
-  <buttotarytn type="submit"  class="btn btn-success " style="padding:5vw 5 vw; margin-left:10rem ; margin-bottom: 5vw;" name="submit" >post now</button>
+  <button type="submit"  class="btn btn-success " style="padding:5px;position:relative; top:15px; right:5px;" name="submit" >post now</button>
 </form>
 
 
@@ -87,13 +87,13 @@ if(($_GET["username"])){
 $sql="SELECT * FROM `thread` WHERE `CATEGORY_ID`=$cat_id";
 $res=mysqli_query($conn,$sql);
 $num=mysqli_num_rows($res);
-if($num){
-  echo'<h3 style="padding-left:5rem;">Comments ...</h3>';
+if($num>0){
+  echo'<h3 style="padding-left:5rem;margin-top:5vh;">Comments ...</h3>';
 while($row=mysqli_fetch_assoc($res)){
    //echo $row["THREAD_ID"];
    //echo $row["THREAD_TITLE"];
    //echo $row["THREAD_DESC"];
-echo '<div class="alert alert-success" role="alert">
+echo '<div  style="border:2px solid green; margin:5px;" class="alert alert-success" role="alert">
 Post :  <a href="comment.php?thread_id='.$row["THREAD_ID"].'&&thread_title='.$row["THREAD_TITLE"].'&&thread_desc='.$row["THREAD_DESC"].'&& username='.$username.'" class="alert-link">'.$row["THREAD_TITLE"].'</a>     '.$row["THREAD_TIMESTAMP"].'<br>'.substr($row["THREAD_DESC"],0,10).'......</div>';
 }
 }}
@@ -102,19 +102,19 @@ else{
   $sql="SELECT * FROM `thread` WHERE `CATEGORY_ID`=$cat_id";
 $res=mysqli_query($conn,$sql);
 $num=mysqli_num_rows($res);
-if($num){
-  echo'<h3 style="padding-left:5rem;">Comments ...</h3>';
+if($num>0){
+  echo'<h3 style="padding-left:5rem;margin-top:5vh;">Comments ...</h3>';
 while($row=mysqli_fetch_assoc($res)){
-   //echo $row["THREAD_ID"];
-   //echo $row["THREAD_TITLE"];
+   $currTime=substr(strval($row["THREAD_TIMESTAMP"]),0,10);
+   echo $currTime;
    //echo $row["THREAD_DESC"];
-echo '<div class="alert alert-success" role="alert">
-Post :  <a href="comment.php?thread_id='.$row["THREAD_ID"].'&&thread_title='.$row["THREAD_TITLE"].'&&thread_desc='.$row["THREAD_DESC"].'&& username='.$username.'" class="alert-link">'.$row["THREAD_TITLE"].'</a>     '.$row["THREAD_TIMESTAMP"].'<br>'.substr($row["THREAD_DESC"],0,10).'......</div>';
+echo '<div style="border:2px solid green; margin:5vw;" class="alert alert-success" role="alert">
+Post :  <a href="comment.php?thread_id='.$row["THREAD_ID"].'&&thread_title='.$row["THREAD_TITLE"].'&&thread_desc='.$row["THREAD_DESC"].'&& username='.$username.'" class="alert-link">'.$row["THREAD_TITLE"].'</a>     '.$currTime.'<br>'.substr($row["THREAD_DESC"],0,10).'......</div>';
 }
 }
 else{
   echo'
-  <div class="jumbotron"  style="width:60vw; margin: auto; margin-bottom:5rem;">
+  <div class="jumbotron"  style="width:80vw; margin: auto; margin-bottom:5rem;">
   <h1 class="display-4">Oops!! NO Data to  display.</h1>
   <p class="lead">Be the first to ask a query.</p>
   <hr class="my-4">
