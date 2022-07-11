@@ -5,7 +5,7 @@ echo'<script>alert(Welcome '.$_SESSION["username"].')</script>';
 }
 else{
   header('location:./login.php');
-}
+ }
 
 ?>
 <!doctype html>
@@ -78,7 +78,7 @@ else{
     $cat_id=$row["CATEGORY_ID"];
     $cat_title=$row["CATEGORY_TITLE"];
     $cat_desc=$row["CATEGORY_DESC"];
-    $cat_timestamp=$row["CATEGORY"];
+    $cat_timestamp=$row["CATEGORY_TIMESTAMP"];
    $username=$_SESSION["username"];
   echo'<div class="cardComponent">
   <div class="card" style="width: 18rem;height:18rem; ">
@@ -86,10 +86,10 @@ else{
     <div class="card-body">
       <h5 class="card-title">'.$cat_title.'</h5>
       <p class="card-text">'.$cat_desc.'</p>
-  <form action="" method="POST">
-  <button type="submit" name="submit"><a href="thread.php?id='.$cat_id.'&& title='.$cat_title.'&& desc='.$cat_desc.'&& username='.$username.'">view thread</a></button>                            
+  <form style="height:auto; width:auto; border:none; "action="" method="POST">
+  <button class="linkButton" type="submit" name="submit"><a style="color:white;" href="thread.php?id='.$cat_id.'&& title='.$cat_title.'&& desc='.$cat_desc.'&& username='.$username.'">view thread</a></button>                            
   </form>
-    </div>
+    </div> 
   </div>';
      }
 ?>
