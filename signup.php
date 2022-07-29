@@ -44,8 +44,7 @@ $password=$_POST["password"];
 $securedpassword=password_hash($password,PASSWORD_BCRYPT);
 $sql="INSERT INTO `loginuser`(`USERNAME`,`EMAIL`,`PASSWORD`) VALUES ('$username','$email','$securedpassword')";
 $res=mysqli_query($conn,$sql);
-$num=mysqli_num_rows($res);
-if($num>0){
+if($res){
   echo'<script>alert("account already exist")</script>';
    }
 else{
